@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ======conditional statements====
+        document.write("<h2> 1. if statement</h2>");
+        let num = 10;
+        if(num >0 ){
+            document.write(num + " is positive. <br><br>");          
+        }
+
+        document.write("<h2> 2. if-else statement </h2>");
+        let age = 16;
+        if(age>=18){
+            document.write("you are eligible to vote. <br><br>");
+        }else{
+            document.write("you are not eligible to vote. <br><br>");
+        }
+       
+         let numbers=[10,20,22,30,40,50];
+         document.write(typeof numbers);
+
+         //1.standard for loop
+
+         document.write("<h2>1. Standard for loop</h2>");
+         for(let i =0;i<numbers.length;i++){
+            document.write("Index "+ i+" = " + numbers[i]+ "<br>");
+         }
+         document.write("<br>");
+
+
+         // for in loop(iterates over indexes/key)
+         document.write("<h2> 2. for ... in loop</h2>");
+         for(let index in numbers){
+            document.write("Index "+ index + " = "+ numbers[index] +"<br>");
+         }
+         document.write("<br>");
+
+
+         // 3. for ... of loop(itertes over loop)
+         document.write("<h2> 3. for...of Loop</h2>");
+         for(let value of numbers){
+            document.write("Value = " +value+ "<br>");
+         }
+         document.write("<br>");
+
+         // 4. forEach() method (array-specific)
+         document.write("<h2>4.forEach() Method </h2>");
+         numbers.forEach(function(value,index){
+            document.write("Index "+ index + " = " + value + "<br>");
+         });
+         document.write("<br>");
+
+
+         //Examples with objects
+         let student = {name: "kumar Priyanshu", age: 20,grade: "A"};
+
+         document.write("<h2>5. for ....in with object</h2>");
+         for(let key in student){
+            document.write(key + ":" + student[key] + "<br>");
+         }
+
+        // for ... of works on iterable objects like arrays , strings, maps , sets
+        document.write("<h2>6. for...of with string</h2>");
+        let word = "Hello";
+        for(let char of word){
+            document.write(char + "<br>");
+        }
+    </script>
+</body>
+</html>

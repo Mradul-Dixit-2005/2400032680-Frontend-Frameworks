@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrays & Methods</title>
+</head>
+<body>
+   <h1>JavaScript Arrays & Methods</h1>
+   <script>
+    document.write("<h2> Creating Arrays</h2>");
+    let fruits = ["Apple","Banana","Mango"];
+    document.write(typeof fruits+"<br><br>");
+    document.write("Fruits: " + fruits+"<br><br>");
+
+    let values = [10,20,30,40,50];
+    console.table(values);
+
+    let mixed = ["kumar priyanshu" ,"CSE1" , "205","c521",{name: "Kumar Priyanshu"}];
+    document.write("Mixed values: " + mixed + "<br><br>");
+
+    document.write("<h2> push() - Add element at end</h2>");
+    fruits.push("orange");
+    document.write("Fruits: " + fruits + "<br><br>")
+
+    document.write("<h2> pop() - Remove last element </h2>");
+    fruits.pop();
+    document.write("Fruits: "+ fruits +"<br><br>");
+
+    let mylist = mixed.toString();////doubt
+    document.write(mylist + "<br><br>");
+
+    document.write("<h2> shift()  - Remove first element</h2>");
+    fruits.shift();
+    document.write(fruits + "<br> <br>");
+
+    document.write("<h2> unshift() - Add element at first</h2>");
+    fruits.unshift("PineApple");
+    document.write(fruits + "<br><br>");
+
+    document.write("<h2> concat()  - Merge arrays</h2>")
+    let moreFruits = ["Grapes", "Carrot"];
+    let allFruits = fruits.concat(moreFruits);
+    document.write("All Furits: " + allFruits + "<br><br>");
+
+    document.write("<h2> slice()  - Extract a portion </h2>");
+    let sliced = allFruits.slice(0,5);
+    document.write(sliced + "<br><br>");
+
+    document.write("<h2> splice() - Add/Remove elements</h2>");
+    allFruits.splice(2,1,"kiwi");
+    document.write(allFruits + "<br><br>");
+    allFruits.splice(4,1);
+    document.write(allFruits +"<br><br>");
+
+    allFruits.splice(2,2);
+    document.write(allFruits +"<br><br>");
+    allFruits.splice(-2,1);
+    document.write(allFruits + "<br><br>");
+
+
+   document.write("<h2> indexof() - & lastindexof() </h2>");
+   let numbers = [1,2,3,4];
+   document.write("indexof(2): " + numbers.indexOf(2) + "<br>");
+   document.write(numbers);
+
+   document.write("<h2> includes()</h2>");
+   document.write(fruits.includes("PineApple") + "<br><br>");
+
+   document.write("<h2>forEach()</h2>");
+   numbers.forEach(function(num) {  ///forEach is a callback function//
+    document.write(num *2 + " ");
+   });
+   document.write("<br><br>");
+
+   document.write("<h2>map()</h2>");
+        let doubled = numbers.map(num => num * 2);
+        document.write(doubled + "<br><br>");
+
+        document.write("<h2>filter()</h2>");
+        let even = numbers.filter(num => num % 2 === 0);
+        document.write(even + "<br><br>");
+
+        document.write("<h2>reduce()</h2>");
+        let sum = numbers.reduce((total, num) => total + num, 0);
+        document.write(sum + "<br><br>");
+
+        document.write("<h2>sort()</h2>");
+        let sortedFruits = allFruits.slice().sort();
+        document.write(sortedFruits + "<br><br>");
+
+        document.write("<h2>reverse()</h2>");
+        let reversedNumbers = numbers.slice().reverse();
+        document.write(reversedNumbers + "<br><br>");
+
+
+   </script>
+
+</body>
+</html>

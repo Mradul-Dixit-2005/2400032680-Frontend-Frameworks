@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-row: 10% 20% 60% 10%;
+            grid-column: 20% 20% 20% 40%;
+            height: 100vh;
+        }
+        
+        .kl{
+            grid-row: 1/2;
+            grid-column: 1/5;
+            background-color:maroon;
+            height: 10vh;
+            text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .b1{
+            grid-row: 2/3;
+            grid-column: 1/2;
+            background-color: rgb(173, 175, 175);
+            height: 25vh;
+            text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .b2{
+            grid-row: 2/3;
+            grid-column:2/3;
+            background-color: cyan;
+            height: 25vh;
+             text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .b3{
+            grid-row: 2/3;
+            grid-column: 3/4;
+            background-color: rgb(67, 28, 28);
+            height: 25vh;
+             text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .side{
+            grid-row: 2/4;
+            grid-column: 4/5;
+            background-color: blue;
+            height: 95vh;
+             text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .foot{
+            grid-row: 4/5;
+            grid-column: 1/5;
+            background-color: burlywood;
+            height: 10vh;
+             text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .main{
+            grid-row: 3/4;
+            grid-column: 1/4;
+            background-color: aquamarine;
+            height: 70vh;
+             text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+        .main img{
+            margin: 100px 100px 100px;
+            width: 450px;
+            height:220px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="kl">KL university</div>
+        <div class="b1">box1</div>
+        <div class="b2">box2</div>
+        <div class="b3">box3</div>
+        <div class="main">
+            <img src="klu.jpg" alt="">
+        </div>
+        <div class="side">side bar</div>
+        <div class="foot">Footer</div>
+    </div>
+</body>
+</html>

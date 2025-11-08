@@ -1,0 +1,108 @@
+<!-- File: Student_Registration_Form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e97b7b;
+      padding: 20px;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea, select {
+      width: 70%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .checkbox-group label {
+      margin-right: 15px;
+      margin-top: 5px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #4440b1;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="success.html" method="get" enctype="multipart/form-data">
+    <h2>Student Registration Form</h2>
+
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="fullname" required>
+
+    <label for="gender">Gender:</label>
+    <input type="radio" name="gender" value="Male" required> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Other"> Other
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="contact">Contact Number:</label>
+    <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" rows="4" required></textarea>
+
+    <label>Languages Known:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="languages[]" value="English"> English</label>
+      <label><input type="checkbox" name="languages[]" value="Hindi"> Hindi</label>
+      <label><input type="checkbox" name="languages[]" value="Telugu"> Telugu</label>
+      <label><input type="checkbox" name="languages[]" value="Tamil"> Tamil</label>
+    </div>
+
+    <label for="branch">Select Branch:</label>
+    <select name="branch" id="branch" required>
+      <option value="">--Select--</option>
+      <option value="CSE">Computer Science</option>
+      <option value="ECE">Electronics & Communication</option>
+      <option value="EEE">Electrical Engineering</option>
+      <option value="MECH">Mechanical Engineering</option>
+      <option value="CIVIL">Civil Engineering</option>
+    </select>
+
+    <label for="resume">Upload Resume / Photo:</label>
+    <input type="file" id="resume" name="resume" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+</body>
+</html>

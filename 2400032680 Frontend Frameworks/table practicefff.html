@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .heading{
+            background-color: aqua;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .spe{
+            background-color: gold;
+            text-align: center;
+        }
+        tr{
+            text-align: center;
+            background-color:bisque ;
+        }
+        table{
+            border-collapse: separate;
+            max-width: 100px;
+            padding: 2px;
+            border-radius: 5px;
+            border-color: rgb(182, 14, 14);
+            border-width: 5px;
+            float:inline-end;
+        }
+    </style>
+</head>
+<body>
+    <table border="1px solid black">
+        <tr>
+            <th class="heading">Device</th>
+            <th class="heading">Brand</th>
+            <th colspan="2" class="heading">Specifications</th>
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+            <td rowspan="3">Smartphone</td>
+            <td rowspan="3">Apple</td>
+            <th class="spe">Modal</th>
+            <th class="spe">Storage</th>
+        </tr>
+        <tr>
+              <!-- <td></td>    for smartphone--> 
+            <!-- <td></td> for apple -->
+            <td>iphone 12 pro</td>
+            <td>256GB</td>
+        </tr>
+        <tr>
+              <!-- <td></td>  for smartphone -->
+            <!-- <td></td>  for apple -->
+            <td>iphone SE</td>
+            <td>128GB</td>
+        </tr>
+        <tr>
+              <td>Laptop</td>
+            <td>Hp</td>
+            <td colspan="2">15.6"</td>
+            <!-- <td></td> -->
+        </tr>
+        <tr>
+              <td>Tablet</td>
+            <td>Samsung</td>
+            <td colspan="2">10.5"</td>
+            <!-- <td></td> -->
+        </tr>
+    </table>
+</body>
+</html>

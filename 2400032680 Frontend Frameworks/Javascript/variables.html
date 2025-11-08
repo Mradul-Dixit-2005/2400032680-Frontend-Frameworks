@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js variable Demo</title>
+</head>
+<body>
+    <script>
+        // declare of a variable by using 'var' keyword
+        var x=100;
+        document.write(x,"<br>");//output is 100
+        var x=200;
+        document.write(x,"<br>")
+        document.write(x+x,"<br>");
+        let y= 300;
+        document.write(y,"<br>");
+        // let y=500;
+        // document.write(y,"<br>")//no output !!let variable can not use second time by using same variable name!!
+    //  var z=30; ///this type of decleration is global declaration
+    //     document.write(z,"<br>");
+    //     {
+    //         var z=40;// local declaration
+    //         document.write(z,"<br>");
+    //     }
+    //     document.write(z,"<br>")//it gives 40
+
+        let z=30; ///this type of decleration is global declaration
+        document.write(z,"<br>");
+        {
+            let z=40;// local declaration
+            document.write(z,"<br>");
+        }
+        document.write(z,"<br>")//it gives 40  //(global polluting scope)
+        
+       // for let and const we cannot assingn same variable in same scope!!!///
+        const i=25;
+        // const i=35;
+        document.write(i,"<br>");
+        {
+            const i=45;
+            document.write(i,"<br>");
+        }
+        document.write(i,"<br>")
+
+        let a=10;
+        let b=0.2;
+        let c=true;
+        d = "kumar priyanshu";
+        e=null;
+        document.write(typeof(a),"<br>");
+        document.write(typeof(b),"<br>");
+        document.write(typeof(c),"<br>");
+        document.write(typeof(d),"<br>");
+        document.write(typeof(e),"<br>");
+
+        
+         var m=50;
+        document.write(m,"<br>");
+        
+
+
+        //how to write a function
+
+        function kl_fun(){
+            document.writeln("This is a funtion call from kl_fun","<br>");
+        }
+        // kl_fun();
+
+        document.writeln(kl_fun(),"<br>");
+
+        document.write(typeof kumar,"<br>");
+
+        document.write(typeof [],"<br>")
+        document.write(typeof {},"<br>")
+        document.write(typeof kl_fun,"<br>")
+        document.write(typeof false,"<br>")
+         document.write(typeof 100n,"<br>")
+       
+     n=5;
+     n++;
+     document.write(n);
+    </script>
+</body>
+</html>

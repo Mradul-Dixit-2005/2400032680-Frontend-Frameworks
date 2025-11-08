@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+             border-collapse:collapse ;
+        }
+        .sc{
+            text-align: center;
+            color: aquamarine;
+        }
+        .se{
+            text-align: center;
+            color: deeppink;
+        }
+        .to{
+            text-align: center;
+            color: rgb(0, 255, 68);
+        }
+        .x{
+            text-align: center;
+            color: maroon;
+        }
+        .time{
+            text-align: center;
+            color: cornflowerblue;
+        }
+        .day_name{
+            text-align: center;
+            background-color: cornsilk;
+        }
+    </style>
+</head>
+<body>
+    <table border="2 solid black">
+        <caption>Time Table Sem 1(2025-26)</caption>
+        <tr>
+            <td rowspan="3" class="day_name"> Day</td>
+            <td colspan="3" class="se"> Seminar</td>
+            <!-- <td></td>    for Seminar -->
+              <!-- <td></td>    for Seminar -->
+        </tr>
+        <tr>
+             <!-- <td></td>      for day -->
+            <td colspan="2" class="sc">Schedule</td>
+            <!-- <td></td>      for schedule -->
+            <td rowspan="2" class="to"> Topic</td>
+        </tr>
+        <tr>
+              <!-- <td></td>      for day -->
+            <td> Start</td>
+            <td>END</td>
+            <!-- <td></td>        for topic -->
+        </tr>
+        <tr>
+             <td rowspan="2" class="day_name">Monday</td>
+            <td rowspan="2" class="time">8:00AM</td>
+            <td rowspan="2" class="time">5:00PM</td>
+            <td>Introduction To XML</td>
+        </tr>
+        <tr>
+             <!-- <td></td>      for Monday -->
+            <!-- <td></td>       for 8:00 AM -->
+            <!-- <td></td>       dor 5:00 PM -->
+            <td class="x">X Path</td>
+        </tr>
+        <tr>
+             <td rowspan="3" class="day_name">Tuesday</td>
+            <td class="time">8:00AM</td>
+            <td class="time">11:00Am</td>
+            <td class="x">X Path</td>
+        </tr>
+        <tr>
+             <!-- <td></td>     for Tuesday -->
+            <td class="time">11:00</td>
+            <td class="time">2:00</td>
+            <td rowspan="2" class="x">XSL Transformation</td>
+        </tr>
+        <tr>
+              <!-- <td></td>     for Tuesday -->
+            <td class="time">2:00</td>
+            <td class="time">5:00</td>
+            <!-- <td></td>       for XSL Transformation -->
+        </tr>
+        <tr>
+             <td class="day_name">Wednesday</td>
+            <td class="time">8:00</td>
+            <td class="time">12:00</td>
+            <td class="x">XSL Formatting</td>
+        </tr>
+    </table>
+
+    <pre>
+        kumar
+             priyanshu
+                      verma
+                      manan
+                      rahul
+                           kumar
+    </pre>
+</body>
+</html>

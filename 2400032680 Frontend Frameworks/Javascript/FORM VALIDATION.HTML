@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation Example</title>
+</head>
+<body>
+    <form name="myform" onsubmit="return validateForm()">
+        <label >Username</label>
+        <input type="text" name="username"><br><br>
+        <label for="">Email</label>
+        <input type="text" name="Email"><br><br>
+
+        <label for="">Password:</label>
+        <input type="password" name="password"><br><br>
+        <label for="">age:</label>
+        <input type="age" name="age" id="">
+        <input type="submit" value="Register">
+
+        <script>
+            function validateForm(){
+                let uname = document.forms["myform"]["username"].value;
+                let email = document.forms["myform"]["Email"].value;
+                let pass = document.forms["myform"]["password"].value;
+                let age = document.forms["myform"]["age"].value;
+
+
+                //username must not be empty
+                if(uname==""){
+                    alert("Username must be filled out");
+                    return false;
+                }
+
+                //simple email check
+                if(email=="" || !email.includes("@")){
+                    alert("please enter a valid email");
+                    return false;
+                }
+
+                //password must be at least 6 characters long
+                if(pass.length<6){
+                    alert("Password must be at least 6 characters long");
+                    return false;
+                }
+                //age must be a number and at least 18
+                if(isNaN(age) || age<18){
+                    alert("You must be at least 18 years old");
+                    return false;
+                }
+                
+
+            }
+        </script>
+    </form>
+</body>
+</html>

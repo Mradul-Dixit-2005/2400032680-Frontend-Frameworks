@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .container{
+            display: grid;
+            grid-row: 10% 80% 10%;
+            grid-column: 35% 30% 35%;
+            height: 100vh;
+        }
+        .top{
+            height: 10vh;
+            grid-row:1/2 ;
+            grid-column: 1/4;
+            background-color: aqua;
+             text-align: center;
+        
+        }
+        .left{
+            height: 80vh;
+            grid-row:2/3 ;
+            grid-column: 1/2;
+            background-color: rgb(168, 176, 26);
+             text-align: center;
+          
+
+        }
+        .main{
+            height: 80vh;
+            grid-row: 2/3;
+            grid-column: 2/3;
+            background-color: crimson;
+             text-align: center;
+       
+
+        }
+        .right{
+            height: 80vh;
+            grid-row: 2/3;
+            grid-column: 3/4;
+            background-color: darkseagreen;
+            text-align: center;
+           
+
+        }
+        .ft{
+            height: 10vh;
+            grid-row: 3/4;
+            grid-column: 1/4;
+            background-color: cornflowerblue;
+             text-align: center;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">Header
+            <img style="float: left; margin: 15px; border-radius: 5px;"  src="klu.jpg" width="70px" height="40px"  alt="">
+        </div>
+        <div class="left">Left side bar</div>
+        <div class="main">Main</div>
+        <div class="right">Right side bar</div>
+        <div class="ft">footer</div>
+    </div>
+</body>
+</html>

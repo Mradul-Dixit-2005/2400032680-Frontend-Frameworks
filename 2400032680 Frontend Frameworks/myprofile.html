@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .container{
+            display: grid;
+            grid-template-rows: 15% 80% 5%;
+            
+            height: 100vh;
+        }
+        .profile{
+           grid-row: 1/2;
+           background-color: black;
+           height: 15vh;
+           display: flex;
+           justify-content: space-between;
+           color: aliceblue;
+         
+          
+        }
+        .left{
+             font-family: 'Tangerine',serif;
+           font-size: 48px;
+            font-weight: bold;
+            padding: 8px 0px 3px 8px;
+            margin: 2px 2px 2px 2px;
+        }
+        .right{
+            display: flex;
+            gap: 20px;
+                font-family: 'Tangerine',serif;
+               font-size: 25px;
+             font-weight: bold;
+           
+
+            
+        }
+        .log{
+           padding: 12px 2px 8px 9px;
+           margin: 5px 2px 2px 2px;
+           text-decoration: none;
+           color: aliceblue;
+        }
+        .sign{
+             padding: 10px 5px 4px 0px;
+             margin: 8px 2px 2px 3px;
+        }
+        .main{
+            grid-template-rows: 2/3;
+            background-color: white;
+            height: 80vh;
+        }
+        .info{
+          margin: 100px 50px 18px 413px;
+          padding: 10px 17px 13px 8px;
+row-gap: 2px;
+            font-size: medium;
+           display: inline-block;
+           text-align: left;
+          
+            color: black;
+            
+        }
+     
+        .footer{
+            grid-template-rows: 3/4;
+            background-color: black;
+            height: 5vh;
+            font-size: large;
+            font-weight: bold;
+            color: aliceblue;
+            padding: 20px 2px 3px 15px;
+            margin: 2px 2px 2px 2px;
+            display: flex;
+            justify-content: space-between;
+            
+            
+        }
+        .copy{
+            margin: 2px 2px 2px 2px;
+        }
+        .social-icons{
+                 display: flex;
+                 gap: 10px;
+                 padding: 2px 2px 2px 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+        <div class="left">My Profile</div>
+        <div class="right">
+           <div class="log"> <a href="login.html" target="_blank"> Login </a> </div>
+           <div class="sign">Signup</div> 
+        </div>
+        </div>
+        <div class="main">
+           <div class="info">
+    <div><span class="label">Name:</span> Kumar Priyanshu</div>
+    <div><span class="label">Reg:</span> 2400032676</div>
+    <div><span class="label">Department:</span> CSE</div>
+    <div><span class="label">Email:</span> 2400032676@kluniversity.in</div>
+    <div><span class="label">Contact:</span> +91 9142762401</div>
+ </div>
+        </div>
+        <div class="footer">
+            <p class="copy"> &copy; All Rights reserved</p>
+               <div class="social-icons">
+                 <i class="fas fa-home"></i>
+                  <i class="fab fa-instagram"></i>
+                   <i class="fas fa-envelope"></i>
+                  <i class="fab fa-facebook"></i>
+                  <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+
+ </div>
+</body>
+</html>

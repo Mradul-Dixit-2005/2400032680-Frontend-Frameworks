@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌦 Indian Weather Forecast</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(120deg, #0093E9, #80D0C7);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s ease;
+    }
+
+    .container:hover { transform: scale(1.02); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 15px;
+      border: none;
+      outline: none;
+      text-align: center;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      transition: box-shadow 0.3s;
+    }
+
+    input:focus {
+      box-shadow: 0 0 12px rgba(255,255,255,0.5);
+    }
+
+    .dropdown {
+      position: absolute;
+      width: 100%;
+      background: #fff;
+      color: #333;
+      border-radius: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 10;
+    }
+
+    .dropdown div {
+      padding: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .dropdown div:hover {
+      background-color: #f1f1f1;
+    }
+
+    button {
+      background: linear-gradient(135deg, #ffd43b, #ff7b00);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #ffe259, #ffa751);
+    }
+
+    .weather-box {
+      margin-top: 25px;
+      display: none;
+      animation: popIn 1s ease;
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .weather-icon {
+      font-size: 4.5em;
+      margin: 10px 0;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .temperature {
+      font-size: 3em;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      font-size: 1.1em;
+      margin: 5px 0;
+    }
+
+    .error {
+      color: #ffb3b3;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.85em;
+    }
+
+    canvas {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      margin-top: 20px;
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>🌈 Indian Weather Forecast</h2>
+
+    <div class="search-container">
+      <input type="text" id="cityInput" placeholder="🔍 Type city or district name..." onkeyup="showSuggestions(this.value)" />
+      <div id="dropdown" class="dropdown"></div>
+    </div>
+
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div class="weather-box" id="weatherBox">
+      <div class="weather-icon" id="icon"></div>
+      <h3 id="cityName"></h3>
+      <div class="temperature" id="temperature"></div>
+      <div class="info">
+        <p id="description"></p>
+        <p id="humidity"></p>
+        <p id="wind"></p>
+      </div>
+    </div>
+
+    <canvas id="weatherChart" style="display:none;"></canvas>
+
+    <p class="error" id="error"></p>
+  </div>
+
+  <footer>© 2025 Indian Weather • Designed by Kumar Priyanshu ☀️</footer>
+
+  <script>
+    const apiKey = "0e1e63bc8cb31acb1e47e1c9d06026cc";
+
+    const cityStateMap = {
+      "Etawah": "Uttar Pradesh",
+      "Lucknow": "Uttar Pradesh",
+      "Kanpur": "Uttar Pradesh",
+      "Agra": "Uttar Pradesh",
+      "Delhi": "Delhi",
+      "Mumbai": "Maharashtra",
+      "Pune": "Maharashtra",
+      "Nagpur": "Maharashtra",
+      "Bhopal": "Madhya Pradesh",
+      "Indore": "Madhya Pradesh",
+      "Jaipur": "Rajasthan",
+      "Udaipur": "Rajasthan",
+      "Patna": "Bihar",
+      "Ranchi": "Jharkhand",
+      "Chennai": "Tamil Nadu",
+      "Coimbatore": "Tamil Nadu",
+      "Bengaluru": "Karnataka",
+      "Mysuru": "Karnataka",
+      "Hyderabad": "Telangana",
+      "Visakhapatnam": "Andhra Pradesh",
+      "Kolkata": "West Bengal",
+      "Guwahati": "Assam",
+      "Shimla": "Himachal Pradesh",
+      "Srinagar": "Jammu and Kashmir",
+      "Dehradun": "Uttarakhand"
+    };
+
+    const indianCities = Object.keys(cityStateMap);
+
+    function showSuggestions(inputText) {
+      const dropdown = document.getElementById("dropdown");
+      dropdown.innerHTML = "";
+      if (!inputText) { dropdown.style.display = "none"; return; }
+
+      const suggestions = indianCities.filter(city => city.toLowerCase().startsWith(inputText.toLowerCase()));
+      if (suggestions.length === 0) { dropdown.style.display = "none"; return; }
+
+      suggestions.forEach(city => {
+        const div = document.createElement("div");
+        div.textContent = city;
+        div.onclick = () => selectCity(city);
+        dropdown.appendChild(div);
+      });
+
+      dropdown.style.display = "block";
+    }
+
+    function selectCity(city) {
+      document.getElementById("cityInput").value = city;
+      document.getElementById("dropdown").style.display = "none";
+    }
+
+    function getWeatherIcon(condition) {
+      const lower = condition.toLowerCase();
+      if (lower.includes("cloud")) return "☁️";
+      if (lower.includes("rain")) return "🌧️";
+      if (lower.includes("clear")) return "☀️";
+      if (lower.includes("mist") || lower.includes("fog")) return "🌫️";
+      if (lower.includes("storm")) return "⛈️";
+      if (lower.includes("snow")) return "❄️";
+      return "🌤️";
+    }
+
+    async function getWeather() {
+      const city = document.getElementById("cityInput").value.trim();
+      const error = document.getElementById("error");
+      const weatherBox = document.getElementById("weatherBox");
+      const chartCanvas = document.getElementById("weatherChart");
+
+      if (city === "") {
+        error.textContent = "⚠️ Please enter or select a city.";
+        weatherBox.style.display = "none";
+        chartCanvas.style.display = "none";
+        return;
+      }
+
+      try {
+        const currentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},IN&appid=${apiKey}&units=metric`;
+        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city},IN&appid=${apiKey}&units=metric`;
+
+        const [currentRes, forecastRes] = await Promise.all([fetch(currentUrl), fetch(forecastUrl)]);
+        const currentData = await currentRes.json();
+        const forecastData = await forecastRes.json();
+
+        if (currentRes.ok && currentData.main) {
+          error.textContent = "";
+          const weather = currentData.weather[0].description;
+          const icon = getWeatherIcon(weather);
+          const state = cityStateMap[city] || "India";
+
+          document.getElementById("icon").textContent = icon;
+          document.getElementById("cityName").textContent = `${currentData.name}, ${state}`;
+          document.getElementById("temperature").textContent = `${currentData.main.temp.toFixed(1)}°C`;
+          document.getElementById("description").textContent = `🌦 ${weather}`;
+          document.getElementById("humidity").textContent = `💧 Humidity: ${currentData.main.humidity}%`;
+          document.getElementById("wind").textContent = `🌬 Wind: ${currentData.wind.speed} m/s`;
+
+          weatherBox.style.display = "block";
+
+          // Forecast chart (next 8 intervals ~24h)
+          const labels = forecastData.list.slice(0, 8).map(item => item.dt_txt.split(" ")[1].slice(0,5));
+          const temps = forecastData.list.slice(0, 8).map(item => item.main.temp);
+
+          chartCanvas.style.display = "block";
+
+          new Chart(chartCanvas, {
+            type: 'line',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Temperature (°C)',
+                data: temps,
+                borderColor: '#ff7b00',
+                backgroundColor: 'rgba(255,123,0,0.2)',
+                tension: 0.4,
+                fill: true,
+                pointRadius: 5
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: { display: true, labels: { color: '#fff' } },
+                title: { display: true, text: 'Next 24 Hours Temperature Forecast', color: '#fff', font: { size: 16 } }
+              },
+              scales: {
+                y: {
+                  ticks: { color: '#fff' },
+                  grid: { color: 'rgba(255,255,255,0.2)' }
+                },
+                x: {
+                  ticks: { color: '#fff' },
+                  grid: { color: 'rgba(255,255,255,0.2)' }
+                }
+              }
+            }
+          });
+
+        } else {
+          weatherBox.style.display = "none";
+          chartCanvas.style.display = "none";
+          error.textContent = "❌ City not found! Please select a valid Indian city.";
+        }
+      } catch (err) {
+        weatherBox.style.display = "none";
+        chartCanvas.style.display = "none";
+        error.textContent = "⚠️ Unable to fetch weather data. Try again later.";
+      }
+    }
+
+    window.onclick = function(e) {
+      if (!e.target.matches("#cityInput")) {
+        document.getElementById("dropdown").style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>

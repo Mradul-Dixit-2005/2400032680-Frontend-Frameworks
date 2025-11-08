@@ -1,0 +1,80 @@
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.background-gradient {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.login-container {
+  background: rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.27);
+  text-align: center;
+  color: #fff;
+  min-width: 350px;
+}
+
+.icon {
+  font-size: 56px;
+  margin-bottom: 12px;
+}
+
+.form-card {
+  margin: 24px 0;
+  background: rgba(255,255,255,0.10);
+  padding: 24px 16px;
+  border-radius: 12px;
+}
+
+.toggle-btns button {
+  margin: 0 8px;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #6a11cb;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.toggle-btns .active {
+  background: #2575fc;
+  opacity: 1;
+}
+
+input {
+  margin: 12px 0;
+  width: 90%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.signin-btn {
+  width: 95%;
+  margin-top: 12px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.demo-creds {
+  margin-top: 24px;
+  background: rgba(0,0,0,0.10);
+  border-radius: 8px;
+  padding: 12px;
+  color: #fff;
+  font-size: 0.95rem;
+}
